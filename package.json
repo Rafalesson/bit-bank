@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "nodemon": "^2.0.20"
+  },
+  "name": "bit-bank",
+  "description": "Repositório criado para fins de estudos de POO em JS",
+  "version": "1.0.0",
+  "main": "main.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rafalesson/bit-bank.git"
+  },
+  "author": "Rafa Alesson",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rafalesson/bit-bank/issues"
+  },
+  "homepage": "https://github.com/Rafalesson/bit-bank#readme",
+  "type": "module"
+}
