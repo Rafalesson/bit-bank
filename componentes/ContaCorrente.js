@@ -1,10 +1,31 @@
 class ContaCorrente{
-    constructor(cliente, agencia, conta, saldo){
-        this.cliente = cliente;
+    _cliente;
+    agencia;
+    conta;
+    _saldo;
+    static numeroDeContas = 0;
+    constructor(cliente, agencia, conta){
+        this._saldo = 0;
+        this._cliente = cliente;
+        
         this.agencia = agencia;
         this.conta = conta;
 
-        this._saldo = saldo;
+        ContaCorrente.numeroDeContas += 1;
+    }
+    
+    set cliente(novoValor) {
+        if (novoValor instanceof Cliente) {
+            this._cliente = novoValor;
+        }
+    }
+
+    get cliente() {
+        return this._cliente;
+    }
+
+    get saldo() {
+        return this._saldo;
     }
 
     sacar(valor) {
