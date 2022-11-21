@@ -1,56 +1,23 @@
-class ContaCorrente{
-    _cliente;
-    agencia;
-    conta;
-    _saldo;
-    static numeroDeContas = 0;
-    constructor(cliente, agencia, conta){
-        this._saldo = 0;
-        this._cliente = cliente;
-        
-        this.agencia = agencia;
-        this.conta = conta;
+import Conta from "./Conta.js";
 
-        ContaCorrente.numeroDeContas += 1;
-    }
-    
-    set cliente(novoValor) {
-        if (novoValor instanceof Cliente) {
-            this._cliente = novoValor;
-        }
-    }
+class ContaCorrente extends Conta {
+  static numeroDeContas = 0;
 
-    get cliente() {
-        return this._cliente;
-    }
+  constructor(cliente, agencia) {
+    ContaCorrente.numeroDeContas += 1;
+    super(0, cliente, agencia);
+  }
 
-    get saldo() {
-        return this._saldo;
-    }
+  // Sobrescrevendo o comportamento de sacar da classe pai (Conta)
+  sacar(valor) {
+    let taxa = 1.1;
+    const valorSacado = taxa * valor;
 
-    sacar(valor) {
-        if (this._saldo >= valor) {
-            this._saldo -= valor;
-            return valor;
-        }
-        else {
-            console.log(`Saldo insuficiente. Você tentou sacar R$${valor}. Seu saldo atual: R$${this._saldo}.`);
-        }
+    if (this._saldo >= valorSacado) {
+      this._saldo -= valorSacado;
+      return valorSacado;
     }
-
-    depositar(valor) {
-        if (valor <= 0) {
-            console.log(`Não é um valor válido. Você tentou depositar R$${valor}.`);
-        }
-        else {
-            this._saldo += valor;
-        }
-    }
-
-    transferir(valor, conta) {
-        const valorSacado = this.sacar(valor);
-        conta.depositar(valorSacado);
-    }
+  }
 }
 
 export default ContaCorrente;
