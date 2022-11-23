@@ -10,7 +10,7 @@ class ContaCorrente extends Conta {
 
   // Sobrescrevendo o comportamento de sacar da classe pai (Conta)
   sacar(valor) {
-    let taxa = 1.1;
+    let taxa = 1.05;
     const valorSacado = taxa * valor;
 
     if (this._saldo >= valorSacado) {
