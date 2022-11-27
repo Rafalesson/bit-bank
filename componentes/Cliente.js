@@ -1,8 +1,8 @@
 class Cliente{
-    constructor(nome, cpf, rg){
+    constructor(nome, cpf, senha){
         this.nome = nome;
         this._cpf = cpf;
-        this.rg = rg;
+        this._senha = senha;
     }
 
     get cpf(){
